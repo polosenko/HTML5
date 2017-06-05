@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map_with_marker-animations</title>
+    <link rel="stylesheet" href="style.css">
+    <meta>
+</head>
+</head>
+<body>
+<h3>My Google Maps</h3>
+<div id="map"></div>
+<script>
+    var marker;
+    function initMap() {
+        var myLatLng = {lat: 50.6147877, lng: 30.4716797};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: myLatLng
+        });
+        marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            draggable:true,
+            title:"Drag me!",
+            animation: google.maps.Animation.DROP,
+            position: {lat: 50.617, lng: 30.474}
+        });
+        marker.addListener('click', toggleBounce);
+    };
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNkBgesqec8WP6Y72h3p9UKOM0_aNMSEc&callback=initMap">
+</script>
+</body>
+</html>

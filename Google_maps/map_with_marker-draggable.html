@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>map</title>
+    <title>Google_map</title>
     <link rel="stylesheet" href="style.css">
     <meta>
 </head>
@@ -17,11 +17,13 @@
             zoom: 12,
             center: myLatLng
         });
+
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
             draggable:true,
-            title:"Drag me!"
+            title:"Drag me!",
+
         });
     }
 </script>
